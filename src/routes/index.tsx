@@ -160,15 +160,13 @@ function Index() {
               className="relative mx-auto my-8 w-full max-w-xl"
             >
               <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-secondary/20 blur-3xl" />
-              <div className="overflow-hidden rounded-3xl border border-secondary/30 shadow-glow-secondary animate-float-slow">
-                <img
-                  src={heroImg}
-                  alt="Coleção Modão Sertanejo Raiz"
-                  width={1280}
-                  height={1280}
-                  className="block h-auto w-full"
-                />
-              </div>
+              <img
+                src={heroImg}
+                alt="Coleção Modão Sertanejo Raiz"
+                width={1280}
+                height={1280}
+                className="animate-float-slow block h-auto w-full"
+              />
             </motion.div>
 
             <motion.p

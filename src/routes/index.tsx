@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-modao.jpg";
+import heroImg from "@/assets/hero-modao.png";
 import bonusImg from "@/assets/bonus-videos.jpg";
 import { UrgencyBar } from "@/components/landing/UrgencyBar";
 import { CTAButton } from "@/components/landing/CTAButton";

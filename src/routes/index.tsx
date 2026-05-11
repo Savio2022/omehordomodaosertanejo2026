@@ -457,10 +457,5 @@ function Index() {
       <PurchasePopup />
       <WhatsAppFloat />
     </>
-
-.lovable-badge {
-  display: none !important;
-}
-    
   );
 }

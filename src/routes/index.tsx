@@ -130,9 +130,9 @@ function Index() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-primary shadow-glow-primary sm:text-xs"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-[0.7rem] font-extrabold uppercase tracking-[0.2em] text-black shadow-glow-primary sm:text-xs"
             >
-              <span className="size-1.5 rounded-full bg-primary" />
+              <span className="size-1.5 rounded-full bg-black" />
               Acesso Imediato Vitalício
             </motion.span>
 

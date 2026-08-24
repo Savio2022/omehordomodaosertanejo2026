@@ -5,272 +5,88 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Kits de Moldes Digitais — 10, 20, 30 e 50 Moldes" },
-      {
-        name: "description",
-        content:
-          "Escolha seu kit de moldes digitais prontos para imprimir. Kits com 10, 20, 30 ou 50 moldes, acesso imediato e uso ilimitado.",
-      },
-      { property: "og:title", content: "Kits de Moldes Digitais" },
-      {
-        property: "og:description",
-        content: "Quanto maior o kit, maior a economia. Escolha seu pacote e receba os moldes imediatamente.",
-      },
+      { title: "Moldes de EVA para Professores | Kits 10, 20, 30 e 50" },
+      { name: "description", content: "Kits de moldes digitais para professores criarem painéis, murais, decoração e atividades em EVA." },
     ],
   }),
 });
 
 const kits = [
-  {
-    nome: "Kit 10 Moldes",
-    quantidade: "10 moldes digitais",
-    preco: "14,67",
-    antigo: "29,90",
-    destaque: false,
-    economia: "Pacote de entrada",
-  },
-  {
-    nome: "Kit 20 Moldes",
-    quantidade: "20 moldes digitais",
-    preco: "24,67",
-    antigo: "59,90",
-    destaque: true,
-    economia: "Mais escolhido",
-  },
-  {
-    nome: "Kit 30 Moldes",
-    quantidade: "30 moldes digitais",
-    preco: "34,67",
-    antigo: "89,90",
-    destaque: false,
-    economia: "Mais variedade",
-  },
-  {
-    nome: "Kit 50 Moldes",
-    quantidade: "50 moldes digitais",
-    preco: "49,67",
-    antigo: "149,90",
-    destaque: false,
-    economia: "Melhor economia",
-  },
+  { nome: "Kit 10 Moldes", preco: "14,67", antigo: "29,90", destaque: false, texto: "Para começar" },
+  { nome: "Kit 20 Moldes", preco: "24,67", antigo: "59,90", destaque: true, texto: "Mais escolhido" },
+  { nome: "Kit 30 Moldes", preco: "34,67", antigo: "89,90", destaque: false, texto: "Mais variedade" },
+  { nome: "Kit 50 Moldes", preco: "49,67", antigo: "149,90", destaque: false, texto: "Coleção completa" },
 ];
 
 const beneficios = [
-  ["📥", "Acesso imediato", "Receba seu material assim que a compra for confirmada."],
-  ["🖨️", "Prontos para imprimir", "Arquivos digitais para você salvar, imprimir e organizar."],
-  ["♾️", "Use quantas vezes quiser", "O material digital fica com você para reutilizar quando precisar."],
-  ["📱", "Funciona no celular e computador", "Baixe e acesse seus moldes no dispositivo que preferir."],
-  ["💰", "Muito mais por menos", "Os kits maiores aumentam sua variedade sem pagar por cada molde separadamente."],
-  ["🔒", "Compra segura", "Pagamento processado em ambiente seguro e entrega digital."],
+  ["✂️", "Feitos para EVA", "Moldes digitais pensados para recortar, montar e transformar em peças de EVA."],
+  ["🏫", "Foco em professores", "Ideais para murais, painéis, decoração, datas comemorativas e atividades."],
+  ["🖨️", "Prontos para imprimir", "Baixe, imprima e use como base para transferir o desenho para o EVA."],
+  ["📚", "Economize tempo", "Tenha modelos prontos em vez de começar cada desenho do zero."],
+  ["♻️", "Use novamente", "Guarde os arquivos e reutilize os moldes nos seus próximos projetos."],
+  ["📱", "100% digital", "Acesse pelo celular ou computador e mantenha sua coleção organizada."],
+];
+
+const depoimentos = [
+  ["Professora de Educação Infantil", "Espaço reservado para um depoimento real de uma professora sobre a praticidade dos moldes."],
+  ["Professora do Ensino Fundamental", "Espaço reservado para uma avaliação real sobre os trabalhos com EVA feitos em sala de aula."],
+  ["Professora / Artesã", "Espaço reservado para uma avaliação real sobre variedade, impressão e facilidade de uso."],
 ];
 
 const duvidas = [
-  ["O que vou receber?", "Você recebe arquivos digitais com os moldes do kit escolhido. O produto é 100% digital; nenhum item físico será enviado."],
-  ["Como recebo os moldes?", "Após a confirmação do pagamento, o acesso é liberado conforme a entrega configurada no checkout."],
-  ["Posso imprimir os moldes?", "Sim. A proposta dos kits é facilitar o uso digital e a impressão dos moldes para seus projetos."],
-  ["Qual kit devo escolher?", "Se você quer testar, comece pelo Kit 10. Para ter uma coleção mais completa, o Kit 20 é o destaque. Para máxima variedade, escolha 30 ou 50 moldes."],
+  ["Os moldes são para EVA?", "Sim. A coleção é direcionada para trabalhos com EVA, especialmente para professores que produzem peças para a sala de aula."],
+  ["É um produto físico?", "Não. É um produto digital. Nenhum item físico será enviado."],
+  ["Como uso o molde?", "Você recebe o arquivo digital, imprime e utiliza o desenho como base para cortar e montar suas peças em EVA."],
+  ["Qual kit escolher?", "O Kit 10 é para começar. O Kit 20 é o destaque pelo equilíbrio entre quantidade e preço. Os kits 30 e 50 são para quem quer uma coleção maior."],
 ];
 
 function SectionTitle({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
-  return (
-    <div className="mx-auto max-w-3xl text-center">
-      <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">{eyebrow}</span>
-      <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl md:text-5xl">{title}</h2>
-      {text && <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">{text}</p>}
-    </div>
-  );
+  return <div className="mx-auto max-w-3xl text-center"><span className="text-xs font-black uppercase tracking-[0.18em] text-violet-600">{eyebrow}</span><h2 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl md:text-5xl">{title}</h2>{text && <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-500 sm:text-base">{text}</p>}</div>;
 }
 
 function KitCard({ kit }: { kit: (typeof kits)[number] }) {
-  return (
-    <motion.article
-      whileHover={{ y: -7 }}
-      className={`relative flex h-full flex-col rounded-3xl border p-6 transition-all ${
-        kit.destaque
-          ? "border-primary bg-primary/10 shadow-glow-primary"
-          : "border-border bg-card"
-      }`}
-    >
-      {kit.destaque && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1.5 text-[0.65rem] font-black uppercase tracking-wider text-primary-foreground shadow-lg">
-          ★ Mais escolhido
-        </div>
-      )}
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{kit.economia}</span>
-          <h3 className="mt-1 text-2xl font-black">{kit.nome}</h3>
-        </div>
-        <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-xl font-black text-primary">
-          {kit.nome.split(" ")[1].replace("Moldes", "")}
-        </div>
-      </div>
-      <div className="rounded-2xl border border-border bg-background/60 p-5">
-        <p className="text-sm font-bold text-muted-foreground">Você recebe</p>
-        <p className="mt-1 text-xl font-black">{kit.quantidade}</p>
-        <p className="mt-3 text-sm text-muted-foreground">De <span className="line-through">R$ {kit.antigo}</span></p>
-        <div className="mt-1 flex items-end gap-1">
-          <span className="text-sm font-bold">R$</span>
-          <span className="text-4xl font-black leading-none text-gradient-gold">{kit.preco}</span>
-        </div>
-      </div>
-      <ul className="my-6 space-y-3 text-sm">
-        <li className="flex gap-2"><span className="text-success">✓</span> Acesso digital imediato</li>
-        <li className="flex gap-2"><span className="text-success">✓</span> Arquivos prontos para salvar</li>
-        <li className="flex gap-2"><span className="text-success">✓</span> Ótimo para imprimir e organizar</li>
-      </ul>
-      <a
-        href="#checkout"
-        className="mt-auto inline-flex min-h-14 items-center justify-center rounded-2xl bg-gradient-gold px-5 text-center text-sm font-black uppercase tracking-wide text-primary-foreground shadow-glow-primary transition-transform hover:scale-[1.02]"
-      >
-        Quero este kit
-      </a>
-    </motion.article>
-  );
+  return <motion.article whileHover={{ y: -5 }} className={`relative flex h-full flex-col rounded-3xl border p-6 ${kit.destaque ? "border-violet-400 bg-violet-50 shadow-xl shadow-violet-100" : "border-slate-200 bg-white shadow-sm"}`}>
+    {kit.destaque && <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-violet-600 px-4 py-1.5 text-[0.65rem] font-black uppercase text-white shadow-md">★ Mais escolhido</div>}
+    <div className="mb-5 flex items-start justify-between gap-3"><div><span className="text-xs font-bold uppercase tracking-wide text-slate-400">{kit.texto}</span><h3 className="mt-1 text-2xl font-black text-slate-900">{kit.nome}</h3></div><div className="flex size-12 items-center justify-center rounded-2xl bg-violet-100 text-xs font-black text-violet-700">EVA</div></div>
+    <div className="rounded-2xl bg-slate-50 p-5"><p className="text-sm font-semibold text-slate-500">Você recebe</p><p className="mt-1 text-lg font-black text-slate-900">{kit.nome.replace("Kit ", "")}</p><p className="mt-3 text-sm text-slate-400">De <span className="line-through">R$ {kit.antigo}</span></p><div className="mt-1 flex items-end gap-1 text-violet-700"><span className="text-sm font-bold">R$</span><span className="text-4xl font-black leading-none">{kit.preco}</span></div></div>
+    <ul className="my-6 space-y-3 text-sm text-slate-600"><li>✓ Arquivos digitais</li><li>✓ Prontos para imprimir</li><li>✓ Pensados para trabalhos em EVA</li><li>✓ Ideal para professores</li></ul>
+    <a href="#checkout" className="mt-auto inline-flex min-h-14 items-center justify-center rounded-2xl bg-violet-600 px-5 text-center text-sm font-black uppercase tracking-wide text-white transition hover:bg-violet-700">Quero este kit</a>
+  </motion.article>;
 }
 
 function Index() {
-  return (
-    <>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
-
-      <div className="sticky top-0 z-50 overflow-hidden bg-gradient-urgency py-2.5 text-center text-[0.68rem] font-black uppercase tracking-wider text-white shadow-lg sm:text-xs">
-        <div className="flex justify-center gap-8 whitespace-nowrap px-4">
-          <span>🔥 Kits digitais em oferta</span>
-          <span>•</span>
-          <span>📥 Acesso imediato</span>
-          <span className="hidden sm:inline">•</span>
-          <span className="hidden sm:inline">🔒 Compra segura</span>
-        </div>
-      </div>
-
-      <main className="overflow-x-hidden">
-        <section className="relative bg-gradient-hero pb-20 pt-12 sm:pt-20">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,oklch(0.85_0.18_88_/_0.18),transparent_58%)]" />
-          <div className="container relative mx-auto max-w-6xl px-5">
-            <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="text-center lg:text-left">
-                <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.18em] text-primary">
-                  Coleção digital de moldes
-                </motion.span>
-                <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-5 text-4xl font-black leading-[1.04] sm:text-5xl md:text-6xl">
-                  Tenha uma coleção de <span className="text-gradient-gold">moldes digitais</span> pronta para usar
-                </motion.h1>
-                <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-                  Escolha seu kit, receba os arquivos digitais e tenha vários moldes organizados para imprimir, guardar e utilizar nos seus projetos.
-                </motion.p>
-                <div className="mt-7 flex flex-wrap justify-center gap-3 text-left lg:justify-start">
-                  {["Acesso imediato", "Arquivos digitais", "Use quantas vezes quiser"].map((item) => (
-                    <span key={item} className="rounded-full border border-border bg-card/80 px-4 py-2 text-xs font-bold text-foreground/90">✓ {item}</span>
-                  ))}
-                </div>
-                <a href="#ofertas" className="mt-8 inline-flex min-h-14 w-full max-w-md items-center justify-center rounded-2xl bg-gradient-gold px-7 text-base font-black uppercase tracking-wide text-primary-foreground shadow-glow-primary animate-pulse-glow sm:w-auto sm:text-lg">
-                  Ver kits e escolher o meu
-                </a>
-                <p className="mt-4 text-xs text-muted-foreground">Pagamento seguro • Produto 100% digital</p>
-              </div>
-
-              <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }} className="relative mx-auto w-full max-w-lg">
-                <div className="absolute -inset-8 rounded-[3rem] bg-primary/10 blur-3xl" />
-                <div className="relative rounded-[2rem] border border-primary/20 bg-card/90 p-5 shadow-glow-primary backdrop-blur">
-                  <div className="mb-4 flex items-center justify-between rounded-xl border border-border bg-background/70 px-4 py-3">
-                    <span className="text-xs font-black uppercase tracking-wider text-muted-foreground">Sua coleção</span>
-                    <span className="rounded-full bg-success/15 px-3 py-1 text-[0.65rem] font-black uppercase text-success">Digital</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    {[10, 20, 30, 50].map((n, i) => (
-                      <motion.div key={n} animate={{ y: [0, i % 2 ? -5 : 4, 0] }} transition={{ duration: 3 + i * 0.3, repeat: Infinity }} className={`aspect-[0.82] rounded-2xl border p-4 ${n === 20 ? "border-primary bg-primary/15" : "border-border bg-background/70"}`}>
-                        <div className="flex h-full flex-col justify-between">
-                          <div className="flex size-10 items-center justify-center rounded-xl bg-primary/15 text-sm font-black text-primary">PDF</div>
-                          <div><p className="text-2xl font-black">{n}</p><p className="text-[0.68rem] font-bold uppercase tracking-wider text-muted-foreground">moldes</p></div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="mt-4 rounded-2xl border border-primary/20 bg-primary/5 p-4 text-center">
-                    <p className="text-sm font-black">Escolha o tamanho do seu kit</p>
-                    <p className="mt-1 text-xs text-muted-foreground">Mais moldes = mais variedade e melhor custo por molde.</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+  return <>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+    <div className="sticky top-0 z-50 border-b border-violet-100 bg-white/95 py-2.5 text-center text-[0.68rem] font-extrabold uppercase tracking-wide text-violet-700 backdrop-blur sm:text-xs">📚 Moldes de EVA para professores • Acesso digital</div>
+    <main className="overflow-x-hidden bg-[#fcfbff] font-[Inter,sans-serif] text-slate-900">
+      <section className="relative overflow-hidden border-b border-violet-100 bg-gradient-to-b from-violet-50 via-white to-[#fcfbff] py-12 sm:py-20">
+        <div className="pointer-events-none absolute -right-32 -top-32 size-80 rounded-full bg-violet-200/50 blur-3xl" /><div className="pointer-events-none absolute -left-32 bottom-0 size-72 rounded-full bg-fuchsia-100/70 blur-3xl" />
+        <div className="container relative mx-auto max-w-6xl px-5"><div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="text-center lg:text-left"><span className="inline-flex rounded-full border border-violet-200 bg-white px-4 py-2 text-[0.68rem] font-extrabold uppercase tracking-[0.15em] text-violet-700 shadow-sm">✂️ Coleção de moldes para EVA</span>
+            <h1 className="mt-5 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">Crie uma sala de aula mais bonita <span className="text-violet-600">sem perder horas criando moldes</span></h1>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg lg:mx-0">Kits de moldes digitais para professores que trabalham com EVA e querem preparar painéis, murais, decoração e atividades de forma prática.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-2.5 lg:justify-start">{["Para professores", "Moldes para EVA", "Prontos para imprimir"].map(x => <span key={x} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-600 shadow-sm">✓ {x}</span>)}</div>
+            <a href="#ofertas" className="mt-8 inline-flex min-h-14 w-full max-w-md items-center justify-center rounded-2xl bg-violet-600 px-7 text-base font-black uppercase tracking-wide text-white shadow-lg shadow-violet-200 transition hover:-translate-y-0.5 hover:bg-violet-700 sm:w-auto">Ver os kits de moldes</a>
+            <p className="mt-4 text-xs text-slate-400">Produto 100% digital • Pagamento seguro</p>
           </div>
-        </section>
+          <div className="relative mx-auto w-full max-w-lg"><div className="overflow-hidden rounded-[2rem] border border-white bg-white p-2 shadow-2xl shadow-violet-100"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=85" alt="Professora em ambiente de sala de aula" className="h-[360px] w-full rounded-[1.5rem] object-cover sm:h-[430px]" /><div className="relative mx-4 -mt-12 rounded-2xl border border-slate-100 bg-white p-4 shadow-lg"><p className="text-sm font-black">Transforme ideias em peças de EVA</p><p className="mt-1 text-xs leading-relaxed text-slate-500">Imprima o molde, passe para o EVA e monte suas criações para a sala.</p></div></div></div>
+        </div></div>
+      </section>
 
-        <section className="border-y border-border bg-card/30 py-16">
-          <div className="container mx-auto max-w-6xl px-5">
-            <SectionTitle eyebrow="Por que comprar em kit?" title="Uma coleção que cabe no seu bolso" text="Em vez de comprar um molde por vez, você escolhe uma quantidade e leva uma coleção completa para ampliar suas opções." />
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {beneficios.map(([icon, title, text], i) => (
-                <motion.div key={title} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="rounded-2xl border border-border bg-card p-6">
-                  <span className="text-3xl">{icon}</span>
-                  <h3 className="mt-4 text-lg font-black">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+      <section className="py-16 sm:py-20"><div className="container mx-auto max-w-6xl px-5"><SectionTitle eyebrow="Feito para sua rotina" title="Seu trabalho com EVA começa pelo molde certo" text="Tenha uma coleção digital para facilitar os momentos em que você precisa preparar uma sala bonita, uma atividade ou um painel especial." /><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{beneficios.map(([icon,title,text],i)=><motion.div key={title} initial={{opacity:0,y:15}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.04}} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><span className="flex size-11 items-center justify-center rounded-xl bg-violet-50 text-xl">{icon}</span><h3 className="mt-4 text-lg font-black">{title}</h3><p className="mt-2 text-sm leading-relaxed text-slate-500">{text}</p></motion.div>)}</div></div></section>
 
-        <section id="ofertas" className="scroll-mt-16 py-20">
-          <div className="container mx-auto max-w-7xl px-5">
-            <SectionTitle eyebrow="Escolha seu kit" title="Quanto mais moldes, maior sua coleção" text="Comece com o kit que faz sentido para você. Todos os pacotes são digitais e entregues conforme a confirmação do pagamento." />
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {kits.map((kit) => <KitCard key={kit.nome} kit={kit} />)}
-            </div>
-            <div id="checkout" className="mx-auto mt-8 max-w-3xl rounded-2xl border border-border bg-card p-5 text-center">
-              <p className="text-sm font-bold">🔒 Checkout seguro</p>
-              <p className="mt-1 text-xs text-muted-foreground">Os botões estão preparados para receber o link de checkout de cada kit.</p>
-            </div>
-          </div>
-        </section>
+      <section className="border-y border-violet-100 bg-violet-50/60 py-16"><div className="container mx-auto max-w-6xl px-5"><div className="grid items-center gap-8 md:grid-cols-2"><div className="overflow-hidden rounded-3xl bg-white p-2 shadow-xl shadow-violet-100"><img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&q=85" alt="Ambiente educativo" className="h-72 w-full rounded-2xl object-cover md:h-80" /></div><div><span className="text-xs font-extrabold uppercase tracking-[0.18em] text-violet-600">Para quem vive a sala de aula</span><h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">Mais criatividade para seus projetos</h2><p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">Use os moldes para criar personagens, letras, números e elementos decorativos em EVA.</p><div className="mt-6 space-y-3 text-sm font-bold text-slate-700"><p>✓ Murais e painéis temáticos</p><p>✓ Decoração para datas comemorativas</p><p>✓ Cantinhos educativos</p><p>✓ Atividades e projetos com os alunos</p></div></div></div></div></section>
 
-        <section className="bg-card/30 py-20">
-          <div className="container mx-auto max-w-5xl px-5">
-            <SectionTitle eyebrow="Compare" title="Veja o que muda de um kit para outro" />
-            <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card">
-              <div className="grid grid-cols-5 border-b border-border bg-background/70 p-4 text-xs font-black uppercase tracking-wider text-muted-foreground">
-                <span>Kit</span><span className="text-center">Moldes</span><span className="text-center">Preço</span><span className="text-center">Variedade</span><span className="text-center">Indicado</span>
-              </div>
-              {kits.map((kit) => (
-                <div key={kit.nome} className="grid grid-cols-5 items-center border-b border-border p-4 text-xs last:border-0 sm:text-sm">
-                  <strong>{kit.nome}</strong><span className="text-center font-bold">{kit.quantidade.split(" ")[0]}</span><span className="text-center font-black text-primary">R$ {kit.preco}</span><span className="text-center">{kit.economia}</span><span className="text-center text-muted-foreground">{kit.destaque ? "⭐ Preferido" : "Para ampliar"}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      <section id="ofertas" className="scroll-mt-16 py-20"><div className="container mx-auto max-w-7xl px-5"><SectionTitle eyebrow="Escolha seu kit" title="Quantos moldes você quer ter?" text="Todos os kits são digitais e pensados para facilitar seu trabalho com EVA." /><div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{kits.map(kit=><KitCard key={kit.nome} kit={kit}/>)}</div></div></section>
 
-        <section className="py-20">
-          <div className="container mx-auto max-w-3xl px-5">
-            <SectionTitle eyebrow="Ainda está em dúvida?" title="Perguntas frequentes" />
-            <div className="mt-10 space-y-3">
-              {duvidas.map(([q, a]) => (
-                <details key={q} className="group rounded-2xl border border-border bg-card p-5">
-                  <summary className="cursor-pointer list-none pr-8 text-base font-black marker:hidden">{q}<span className="float-right text-primary transition-transform group-open:rotate-45">＋</span></summary>
-                  <p className="mt-3 border-t border-border pt-3 text-sm leading-relaxed text-muted-foreground">{a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+      <section className="bg-white py-20"><div className="container mx-auto max-w-6xl px-5"><SectionTitle eyebrow="Depoimentos" title="O que professores podem contar sobre os kits" text="Abaixo deixamos o espaço pronto para inserir avaliações reais de clientes após as primeiras vendas." /><div className="mt-10 grid gap-5 md:grid-cols-3">{depoimentos.map(([cargo,text])=><article key={cargo} className="rounded-3xl border border-slate-200 bg-[#fcfbff] p-6 shadow-sm"><div className="flex gap-1 text-amber-400">★★★★★</div><p className="mt-4 text-sm leading-relaxed text-slate-600">“{text}”</p><div className="mt-6 border-t border-slate-200 pt-4"><p className="font-black text-slate-900">{cargo}</p><p className="mt-1 text-xs text-slate-400">Depoimento real a inserir</p></div></article>)}</div></div></section>
 
-        <section className="border-t border-primary/10 bg-gradient-hero py-20">
-          <div className="container mx-auto max-w-3xl px-5 text-center">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-primary">Sua coleção começa aqui</span>
-            <h2 className="mt-4 text-3xl font-black sm:text-5xl">Escolha seu kit de moldes digitais</h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Tenha mais variedade, organização e praticidade sem precisar comprar cada molde separadamente.</p>
-            <a href="#ofertas" className="mt-8 inline-flex min-h-14 w-full max-w-md items-center justify-center rounded-2xl bg-gradient-gold px-7 text-base font-black uppercase text-primary-foreground shadow-glow-primary animate-pulse-glow sm:text-lg">Quero escolher meu kit</a>
-            <p className="mt-4 text-xs text-muted-foreground">Produto digital • Acesso após confirmação • Compra segura</p>
-          </div>
-        </section>
+      <section className="bg-slate-900 py-20 text-white"><div className="container mx-auto max-w-5xl px-5 text-center"><span className="text-xs font-extrabold uppercase tracking-[0.18em] text-violet-300">Seu próximo projeto começa aqui</span><h2 className="mt-3 text-3xl font-black sm:text-4xl">Tenha seus moldes de EVA sempre à mão</h2><p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">Escolha seu kit e tenha uma coleção digital para preparar suas próximas criações.</p><a href="#ofertas" className="mt-8 inline-flex min-h-14 rounded-2xl bg-violet-500 px-8 py-4 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-violet-900/30 transition hover:bg-violet-400">Escolher meu kit</a></div></section>
 
-        <footer className="border-t border-border bg-background py-8 text-center text-xs text-muted-foreground">
-          <p>© 2026 • Kits de Moldes Digitais</p>
-          <p className="mt-2">Produto digital. Nenhum item físico será enviado.</p>
-        </footer>
-      </main>
-    </>
-  );
+      <section id="checkout" className="py-16"><div className="container mx-auto max-w-3xl px-5"><SectionTitle eyebrow="Dúvidas" title="Perguntas frequentes" /><div className="mt-10 space-y-3">{duvidas.map(([pergunta,resposta])=><details key={pergunta} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><summary className="cursor-pointer list-none pr-6 text-sm font-black text-slate-900">{pergunta}<span className="float-right text-violet-600">＋</span></summary><p className="mt-3 text-sm leading-relaxed text-slate-500">{resposta}</p></details>)}</div></div></section>
+
+      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-400"><p>© {new Date().getFullYear()} • Moldes de EVA para Professores</p><p className="mt-2">Produto digital. Nenhum item físico será enviado.</p></footer>
+    </main>
+  </>;
 }
